@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Biscoito da Sorte</title>
+  </head>
+  <body>
+    <h1>Biscoito da Sorte</h1>
+    <button id="btnGetFrase">Obter Frase</button>
+    <p id="fraseMotivacional"></p>
+
+    <script>
+      const btnGetFrase = document.getElementById("btnGetFrase");
+      const fraseMotivacional = document.getElementById("fraseMotivacional");
+
+      btnGetFrase.addEventListener("click", () => {
+        fetch("http://localhost:8080/phrases")
+          .then((response) => response.text())
+          .then((data) => {
+            console.log(data);
+            fraseMotivacional.textContent = data;
+          })
+          .catch((error) => {
+            console.error("Erro ao obter frase:", error);
+          });
+      });
+    </script>
+  </body>
+</html>
