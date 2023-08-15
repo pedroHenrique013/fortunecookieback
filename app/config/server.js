@@ -10,7 +10,7 @@ module.exports = () => {
   const Phrases = require("../src/domain/phrases/routes");
   app.use("/phrases", Phrases);
 
-  app.listen(process.env.PORT || PORT, "0.0.0.0", () => {
+  app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
   });
 };
